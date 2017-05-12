@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>为应用添加Touch ID | PackZ</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="为应用添加Touch ID | PackZ">
+    <meta name="twitter:description" content="因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="为应用添加Touch ID | PackZ">
+    <meta property="og:description" content="因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》">
+
+    
+    <meta name="author" content="PackZ">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/favicon.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="PackZ" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://104.224.135.25/2017/05/11/为应用添加Touch-ID/"/>
+
+    
+</head>
+
+<body class="home-template no-js">
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 PackZ 的主页"><img src="/images/logo2.jpg" width="80" alt="PackZ logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for PackZ">PackZ</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">iOS开发程序员</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/lenbo-ma" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  <li class="navigation__item">
+    <a href="https://twitter.com/lenbo_" title="上Twitter找我" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-05-11T07:42:41.000Z" class="post-list__meta--date date">2017.05.11</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/Touch-ID/">Touch ID</a>
+</span>;
+    </div>
+    <h1 class="post-title">为应用添加Touch ID</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Touch ID是苹果公司的一种指纹识别技术。苹果把用户的指纹数据存放在处理器的安全区域中，充分保护用户的数据安全。除此之外，苹果还有另外一道指纹数据安全防线，以一种前所未有的硬件技术实现了对用户数据的保护。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最初在2013年苹果推出的iPhone 5s上出现，解锁速度稍慢。<br>在2015年苹果发布会上声明iPhone 6s采用了第二代Touch ID，识别速度更快。</p>
+<center><img src="http://i1.piimg.com/1949/1a73de8ac30b372e.jpg" alt=""></center><br><center>相比2013年第一代Touch ID，2015年第二代Touch ID的识别面积提升了40%</center>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><pre><code>LAContext *context = [[LAContext alloc] init];
+///从解锁屏幕成功开始的时间间隔内，去请求本地认证，将不会请求指纹验证，会直接通过验证。（最长时间5min）
+context.touchIDAuthenticationAllowableReuseDuration = _reuserTextfield.text ? [_reuserTextfield.text integerValue] : 0;
+
+///失败以后的选项文字
+context.localizedFallbackTitle = @&quot;余额指纹支付失败,去输密码&quot;;
+///取消选项文字
+context.localizedCancelTitle = @&quot;取消&quot;;
+
+///检测是否支持指纹验证
+BOOL isTouchIDEnable = [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:nil];
+
+if(isTouchIDEnable) {
+
+    ///发起指纹支付
+    [context evaluatePolicy:LAPolicyDeviceOwnerAuthentication localizedReason:@&quot;余额支付&quot; reply:^(BOOL success, NSError * _Nullable error) {
+
+        //子线程
+        NSLog(@&quot;%d&quot;,[NSThread currentThread].isMainThread);
+
+        dispatch_sync(dispatch_get_main_queue(), ^{
+
+            if(success) {
+                NSLog(@&quot;支付成功&quot;);
+                self.tipLabel.text = @&quot;支付成功&quot;;
+                return;
+            }
+
+            switch (error.code) {
+                case LAErrorUserFallback: ///点击输入密码按钮
+                {
+                    self.tipLabel.text = @&quot;输入密码&quot;;
+                    NSLog(@&quot;输入密码&quot;);
+                }
+                    break;
+        });
+    }];
+} else {
+    NSLog(@&quot;不能使用Touch ID&quot;);
+}
+</code></pre><p>值得注意的是在指纹支付的reply代码块中的内容，默认是在子线程中执行，若有刷新UI的操作，需回到主线程执行。</p>
+<h2 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h2><p>在验证与发起指纹支付的时候需要<code>Policy</code>参数，Apple提供了以下两种策略</p>
+<pre><code>LAPolicyDeviceOwnerAuthentication
+LAPolicyDeviceOwnerAuthenticationWithBiometrics
+</code></pre><p>两种策略的区别我以以下的流程图说明<br><img src="http://i4.buimg.com/1949/b69eb46f844e5a54.png" alt=""><br>注：LAPolicyDeviceOwnerAuthentication策略在Touch ID验证失败三次以后，会要求用户输入PassCode(iPhone的开屏密码)，PassCode输错6次，iPhone将被锁住1min。三次以后，会要求用户输入PassCode(iPhone的开屏密码)，PassCode输错6次，iPhone将被锁住1min。</p>
+
+  </section>
+
+</article>
+
+
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    </span>
+    <span class="footer__copyright">
+        基于 <a href="http://hexo.io">Hexo</a> 搭建，感谢 <a href="https://pages.github.com/">GitHub Pages</a> 提供免费的托管服务
+    </span>
+    <span class="footer__copyright">
+        &copy; 2017 - 本站由 <a href="/">@Longbo Ma</a> 创建,
+        使用<a href="https://github.com/lenbo-ma/hexo-theme-vno">hexo-theme-vno</a>主题,
+        修改自<a href="http://github.com/onevcat/vno" target="_blank">Vno</a>
+    </span>
+</footer>
+
+        </div>
+    </div>
+
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+
+     
+</body>
+</html>
