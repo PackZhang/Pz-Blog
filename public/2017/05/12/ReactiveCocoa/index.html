@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     
-    <title>PackZ | iOS开发程序员</title>
+    <title>ReactiveCocoa | PackZ</title>
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -15,11 +15,11 @@
     <meta name="description" content="因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="PackZ | iOS开发程序员">
+    <meta name="twitter:title" content="ReactiveCocoa | PackZ">
     <meta name="twitter:description" content="因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="PackZ | iOS开发程序员">
+    <meta property="og:title" content="ReactiveCocoa | PackZ">
     <meta property="og:description" content="因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》">
 
     
@@ -37,7 +37,7 @@
     <link rel="alternate" type="application/rss+xml" title="PackZ" href="/atom.xml">
     
 
-    <link rel="canonical" href="http://104.224.135.25"/>
+    <link rel="canonical" href="http://104.224.135.25/2017/05/12/ReactiveCocoa/"/>
 
     
 </head>
@@ -50,7 +50,7 @@
     </span>
 
     
-<header class="panel-cover " style="background-image: url(/images/background-cover.jpg)">
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
   <div class="panel-main">
     <div class="panel-main__inner panel-inverted">
     <div class="panel-main__content">
@@ -135,65 +135,27 @@
 
     <div class="content-wrapper">
         <div class="content-wrapper__inner">
-            <div class="main-post-list">
-    
-  <ol class="post-list">
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/05/17/ReactiveCocoa-RACSignal/" title="link to post.title">ReactiveCocoa之核心信号---RACSignal</a></h2>
-      <p class="excerpt">
-    
-      创建信号RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id&amp;lt;RACSubscriber&amp;gt;  _Nonnull subscriber) &amp;#123;               //被订阅时触发闭包        //发送信号给订阅者        [subscriber sendNext:@1];        [subscriber sendNext:@2];        [subsc
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-05-17T06:48:46.000Z" class="post-list__meta--date date">2017.05.17</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+            <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-05-12T08:57:20.000Z" class="post-list__meta--date date">2017.05.12</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
   <a class="tag-link" href="/tags/ReactiveCocoa/">ReactiveCocoa</a>
-</span><a class="btn-border-small" href="/2017/05/17/ReactiveCocoa-RACSignal/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/05/12/ReactiveCocoa/" title="link to post.title">ReactiveCocoa</a></h2>
-      <p class="excerpt">
-    
-      写在前面
-ReactiveCocoa（其简称为 RAC）是由 Github 开源的一个应用于 iOS 和 OS X 开发的新框架。RAC 具有函数式编程和响应式编程的特性。它主要吸取了 .Net 的 Reactive Extensions 的设计和实现。但是，相对于传统的 MVC 架构，ReactiveCocoa 的函数式编程方式的学习曲线陡峭，业界也没有丰富的图书资料，这使得大家对这种技术望而却步。
+</span>;
+    </div>
+    <h1 class="post-title">ReactiveCocoa</h1>
+  </header>
 
-以上引用自唐巧的博客。从自己学习的情况来看，学习ReactiveCocoa的曲线还可以接受，
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-05-12T08:57:20.000Z" class="post-list__meta--date date">2017.05.12</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/ReactiveCocoa/">ReactiveCocoa</a>
-</span><a class="btn-border-small" href="/2017/05/12/ReactiveCocoa/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-    <li>
-      <h2 class="post-list__post-title post-title"><a href="/2017/05/11/为应用添加Touch-ID/" title="link to post.title">为应用添加Touch ID</a></h2>
-      <p class="excerpt">
-    
-      简介Touch ID是苹果公司的一种指纹识别技术。苹果把用户的指纹数据存放在处理器的安全区域中，充分保护用户的数据安全。除此之外，苹果还有另外一道指纹数据安全防线，以一种前所未有的硬件技术实现了对用户数据的保护。
-背景最初在2013年苹果推出的iPhone 5s上出现，解锁速度稍慢。在2015年苹果发布会上声明iPhone 6s采用了第二代Touch ID，识别速度更快。
-相比2013年第一代Touch ID，2015年第二代Touch ID的识别面积提升了40%
+  <section class="post">
+    <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><blockquote>
+<p>ReactiveCocoa（其简称为 RAC）是由 Github 开源的一个应用于 iOS 和 OS X 开发的新框架。RAC 具有函数式编程和响应式编程的特性。它主要吸取了 .Net 的 Reactive Extensions 的设计和实现。<br>但是，相对于传统的 MVC 架构，ReactiveCocoa 的函数式编程方式的学习曲线陡峭，业界也没有丰富的图书资料，这使得大家对这种技术望而却步。</p>
+</blockquote>
+<p>以上引用自<a href="http://blog.devtang.com/2016/01/03/reactive-cocoa-discussion/" target="_blank" rel="external">唐巧的博客</a>。从自己学习的情况来看，学习ReactiveCocoa的曲线还可以接受，远没到望而却步的地步。先学习常规的用法，清楚<code>RACSignal</code>，<code>RACCommand</code>，<code>RACSubject</code>这三中信号的原理，用法，场景。</p>
+<p>再去尝试使用MVVM+RAC的结构去构建你的应用。</p>
+<p><a href="http://104.224.135.25/2017/05/17/ReactiveCocoa-RACSignal/">ReactiveCocoa之核心信号—RACSignal</a></p>
 
-使用LAContext *c
-    &hellip;
-      </p>
-      <div class="post-list__meta"><time datetime="2017-05-11T07:42:41.000Z" class="post-list__meta--date date">2017.05.11</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/Touch-ID/">Touch ID</a>
-</span><a class="btn-border-small" href="/2017/05/11/为应用添加Touch-ID/">继续阅读</a></div>
-      <hr class="post-list__divider" />
-    </li>
-  
-    
-  </ol>
+  </section>
 
-
-
-</div>
+</article>
 
 
 

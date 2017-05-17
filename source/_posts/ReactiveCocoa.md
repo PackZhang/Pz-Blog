@@ -10,3 +10,5 @@ tags: ReactiveCocoa
 以上引用自[唐巧的博客](http://blog.devtang.com/2016/01/03/reactive-cocoa-discussion/)。从自己学习的情况来看，学习ReactiveCocoa的曲线还可以接受，远没到望而却步的地步。先学习常规的用法，清楚`RACSignal`，`RACCommand`，`RACSubject`这三中信号的原理，用法，场景。
 
 再去尝试使用MVVM+RAC的结构去构建你的应用。
+
+[ReactiveCocoa之核心信号---RACSignal](http://104.224.135.25/2017/05/17/ReactiveCocoa-RACSignal/)

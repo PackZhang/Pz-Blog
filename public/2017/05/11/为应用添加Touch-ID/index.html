@@ -150,47 +150,8 @@
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最初在2013年苹果推出的iPhone 5s上出现，解锁速度稍慢。<br>在2015年苹果发布会上声明iPhone 6s采用了第二代Touch ID，识别速度更快。</p>
 <center><img src="http://i1.piimg.com/1949/1a73de8ac30b372e.jpg" alt=""></center><br><center>相比2013年第一代Touch ID，2015年第二代Touch ID的识别面积提升了40%</center>
 
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><pre><code>LAContext *context = [[LAContext alloc] init];
-///从解锁屏幕成功开始的时间间隔内，去请求本地认证，将不会请求指纹验证，会直接通过验证。（最长时间5min）
-context.touchIDAuthenticationAllowableReuseDuration = _reuserTextfield.text ? [_reuserTextfield.text integerValue] : 0;
-
-///失败以后的选项文字
-context.localizedFallbackTitle = @&quot;余额指纹支付失败,去输密码&quot;;
-///取消选项文字
-context.localizedCancelTitle = @&quot;取消&quot;;
-
-///检测是否支持指纹验证
-BOOL isTouchIDEnable = [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:nil];
-
-if(isTouchIDEnable) {
-
-    ///发起指纹支付
-    [context evaluatePolicy:LAPolicyDeviceOwnerAuthentication localizedReason:@&quot;余额支付&quot; reply:^(BOOL success, NSError * _Nullable error) {
-
-        //子线程
-        NSLog(@&quot;%d&quot;,[NSThread currentThread].isMainThread);
-
-        dispatch_sync(dispatch_get_main_queue(), ^{
-
-            if(success) {
-                NSLog(@&quot;支付成功&quot;);
-                self.tipLabel.text = @&quot;支付成功&quot;;
-                return;
-            }
-
-            switch (error.code) {
-                case LAErrorUserFallback: ///点击输入密码按钮
-                {
-                    self.tipLabel.text = @&quot;输入密码&quot;;
-                    NSLog(@&quot;输入密码&quot;);
-                }
-                    break;
-        });
-    }];
-} else {
-    NSLog(@&quot;不能使用Touch ID&quot;);
-}
-</code></pre><p>值得注意的是在指纹支付的reply代码块中的内容，默认是在子线程中执行，若有刷新UI的操作，需回到主线程执行。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">LAContext *context = [[LAContext alloc] init];</div><div class="line"><span class="comment">///从解锁屏幕成功开始的时间间隔内，去请求本地认证，将不会请求指纹验证，会直接通过验证。（最长时间5min）</span></div><div class="line">context.touchIDAuthenticationAllowableReuseDuration = _reuserTextfield.text ? [_reuserTextfield.text integerValue] : <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="comment">///失败以后的选项文字</span></div><div class="line">context.localizedFallbackTitle = <span class="string">@"余额指纹支付失败,去输密码"</span>;</div><div class="line"><span class="comment">///取消选项文字</span></div><div class="line">context.localizedCancelTitle = <span class="string">@"取消"</span>;</div><div class="line"></div><div class="line"><span class="comment">///检测是否支持指纹验证</span></div><div class="line"><span class="built_in">BOOL</span> isTouchIDEnable = [context canEvaluatePolicy:LAPolicyDeviceOwnerAuthentication error:<span class="literal">nil</span>];</div><div class="line"></div><div class="line"><span class="keyword">if</span>(isTouchIDEnable) &#123;</div><div class="line"></div><div class="line">    <span class="comment">///发起指纹支付</span></div><div class="line">    [context evaluatePolicy:LAPolicyDeviceOwnerAuthentication localizedReason:<span class="string">@"余额支付"</span> reply:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line"></div><div class="line">        <span class="comment">//子线程</span></div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%d"</span>,[<span class="built_in">NSThread</span> currentThread].isMainThread);</div><div class="line"></div><div class="line">        <span class="built_in">dispatch_sync</span>(dispatch_get_main_queue(), ^&#123;</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(success) &#123;</div><div class="line">                <span class="built_in">NSLog</span>(<span class="string">@"支付成功"</span>);</div><div class="line">                <span class="keyword">self</span>.tipLabel.text = <span class="string">@"支付成功"</span>;</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">switch</span> (error.code) &#123;</div><div class="line">                <span class="keyword">case</span> LAErrorUserFallback: <span class="comment">///点击输入密码按钮</span></div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">self</span>.tipLabel.text = <span class="string">@"输入密码"</span>;</div><div class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"输入密码"</span>);</div><div class="line">                &#125;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">        &#125;);</div><div class="line">    &#125;];</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"不能使用Touch ID"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>值得注意的是在指纹支付的reply代码块中的内容，默认是在子线程中执行，若有刷新UI的操作，需回到主线程执行。</p>
 <h2 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h2><p>在验证与发起指纹支付的时候需要<code>Policy</code>参数，Apple提供了以下两种策略</p>
 <pre><code>LAPolicyDeviceOwnerAuthentication
 LAPolicyDeviceOwnerAuthenticationWithBiometrics

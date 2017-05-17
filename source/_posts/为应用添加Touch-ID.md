@@ -16,7 +16,7 @@ Touch ID是苹果公司的一种指纹识别技术。苹果把用户的指纹数
 <center>相比2013年第一代Touch ID，2015年第二代Touch ID的识别面积提升了40%</center>
 
 ## 使用
-
+```objectivec
     LAContext *context = [[LAContext alloc] init];
     ///从解锁屏幕成功开始的时间间隔内，去请求本地认证，将不会请求指纹验证，会直接通过验证。（最长时间5min）
     context.touchIDAuthenticationAllowableReuseDuration = _reuserTextfield.text ? [_reuserTextfield.text integerValue] : 0;
@@ -57,7 +57,7 @@ Touch ID是苹果公司的一种指纹识别技术。苹果把用户的指纹数
     } else {
         NSLog(@"不能使用Touch ID");
     }
-
+```
 值得注意的是在指纹支付的reply代码块中的内容，默认是在子线程中执行，若有刷新UI的操作，需回到主线程执行。
 
 ## 策略

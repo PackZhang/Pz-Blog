@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>ReactiveCocoa之核心信号---RACSignal | PackZ</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ReactiveCocoa之核心信号---RACSignal | PackZ">
+    <meta name="twitter:description" content="因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ReactiveCocoa之核心信号---RACSignal | PackZ">
+    <meta property="og:description" content="因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》">
+
+    
+    <meta name="author" content="PackZ">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/favicon.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="PackZ" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://104.224.135.25/2017/05/17/ReactiveCocoa-RACSignal/"/>
+
+    
+</head>
+
+<body class="home-template no-js">
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 PackZ 的主页"><img src="/images/logo2.jpg" width="80" alt="PackZ logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for PackZ">PackZ</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">iOS开发程序员</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/lenbo-ma" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  <li class="navigation__item">
+    <a href="https://twitter.com/lenbo_" title="上Twitter找我" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-05-17T06:48:46.000Z" class="post-list__meta--date date">2017.05.17</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/ReactiveCocoa/">ReactiveCocoa</a>
+</span>;
+    </div>
+    <h1 class="post-title">ReactiveCocoa之核心信号---RACSignal</h1>
+  </header>
+
+  <section class="post">
+    <h3 id="创建信号"><a href="#创建信号" class="headerlink" title="创建信号"></a>创建信号</h3><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(<span class="keyword">id</span>&lt;RACSubscriber&gt;  _Nonnull subscriber) &#123;</div><div class="line">       </div><div class="line">        <span class="comment">//被订阅时触发闭包</span></div><div class="line">        <span class="comment">//发送信号给订阅者</span></div><div class="line">        [subscriber sendNext:@<span class="number">1</span>];</div><div class="line">        [subscriber sendNext:@<span class="number">2</span>];</div><div class="line">        [subscriber sendNext:@<span class="number">3</span>];</div><div class="line">        </div><div class="line">        [subscriber sendCompleted];</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> [RACDisposable disposableWithBlock:^&#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"信号销毁"</span>);</div><div class="line">        &#125;];</div><div class="line">    &#125;];</div></pre></td></tr></table></figure>
+<p><code>createSignal</code>最终会调用到以下<code>RACDynamicSignal</code>类的对象方法</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">+ (RACSignal *)createSignal:(RACDisposable * (^)(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber))didSubscribe &#123;</div><div class="line">	RACDynamicSignal *signal = [[<span class="keyword">self</span> alloc] init];</div><div class="line">	signal-&gt;_didSubscribe = [didSubscribe <span class="keyword">copy</span>];</div><div class="line">	<span class="keyword">return</span> [signal setNameWithFormat:<span class="string">@"+createSignal:"</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以看出这个方法做的事情非常简单，创建Signal对象，并将didSubscribe代码块保存起来。</p>
+<blockquote>
+<p>值得注意的是每一个信号的终点都是complete或者error，否则下一次对信号订阅操作不会生效。</p>
+</blockquote>
+<h3 id="订阅信号"><a href="#订阅信号" class="headerlink" title="订阅信号"></a>订阅信号</h3><figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line"><span class="comment">//订阅信号</span></div><div class="line">   [signal subscribeNext:^(<span class="keyword">id</span>  _Nullable x) &#123;</div><div class="line">       <span class="comment">//接收到信号时触发闭包</span></div><div class="line">       <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,x);</div><div class="line">   &#125;];</div></pre></td></tr></table></figure>
+<p><code>subscribeNext</code>方法对刚才创建的signal进行订阅操作，<code>subscribeNext</code>的实现如下</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (RACDisposable *)subscribeNext:(<span class="keyword">void</span> (^)(<span class="keyword">id</span> x))nextBlock &#123;</div><div class="line">	<span class="built_in">NSCParameterAssert</span>(nextBlock != <span class="literal">NULL</span>);</div><div class="line">	</div><div class="line">	RACSubscriber *o = [RACSubscriber subscriberWithNext:nextBlock error:<span class="literal">NULL</span> completed:<span class="literal">NULL</span>];</div><div class="line">	<span class="keyword">return</span> [<span class="keyword">self</span> subscribe:o];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (RACDisposable *)subscribe:(<span class="keyword">id</span>&lt;RACSubscriber&gt;)subscriber &#123;</div><div class="line">	<span class="built_in">NSCParameterAssert</span>(subscriber != <span class="literal">nil</span>);</div><div class="line"></div><div class="line">	RACCompoundDisposable *disposable = [RACCompoundDisposable compoundDisposable];</div><div class="line">	subscriber = [[RACPassthroughSubscriber alloc] initWithSubscriber:subscriber signal:<span class="keyword">self</span> disposable:disposable];</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (<span class="keyword">self</span>.didSubscribe != <span class="literal">NULL</span>) &#123;</div><div class="line">		RACDisposable *schedulingDisposable = [RACScheduler.subscriptionScheduler schedule:^&#123;</div><div class="line">			RACDisposable *innerDisposable = <span class="keyword">self</span>.didSubscribe(subscriber);</div><div class="line">			[disposable addDisposable:innerDisposable];</div><div class="line">		&#125;];</div><div class="line"></div><div class="line">		[disposable addDisposable:schedulingDisposable];</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> disposable;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>内部会创建订阅者并且保存<code>nextBlock</code>代码快中的代码，并且进入到<code>RACDynamicSignal</code>的<code>subscribe</code>方法中执行在创建信号时保存的<code>didSubscribe</code>代码块中保存的代码。<br>在<code>didSubscribe</code>中已经写好了<code>[subscriber sendNext:@1];</code>方法，<code>sendNext</code>的实现如下</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)sendNext:(<span class="keyword">id</span>)value &#123;</div><div class="line">	<span class="keyword">@synchronized</span> (<span class="keyword">self</span>) &#123;</div><div class="line">		<span class="keyword">void</span> (^nextBlock)(<span class="keyword">id</span>) = [<span class="keyword">self</span>.next <span class="keyword">copy</span>];</div><div class="line">		<span class="keyword">if</span> (nextBlock == <span class="literal">nil</span>) <span class="keyword">return</span>;</div><div class="line"></div><div class="line">		nextBlock(value);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在执行<code>sendNext</code>方法时会执行在订阅信号时保存的<code>nextBlock</code>代码，将数字1打印出来。</p>
+
+  </section>
+
+</article>
+
+
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    </span>
+    <span class="footer__copyright">
+        基于 <a href="http://hexo.io">Hexo</a> 搭建，感谢 <a href="https://pages.github.com/">GitHub Pages</a> 提供免费的托管服务
+    </span>
+    <span class="footer__copyright">
+        &copy; 2017 - 本站由 <a href="/">@Longbo Ma</a> 创建,
+        使用<a href="https://github.com/lenbo-ma/hexo-theme-vno">hexo-theme-vno</a>主题,
+        修改自<a href="http://github.com/onevcat/vno" target="_blank">Vno</a>
+    </span>
+</footer>
+
+        </div>
+    </div>
+
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+
+     
+</body>
+</html>
