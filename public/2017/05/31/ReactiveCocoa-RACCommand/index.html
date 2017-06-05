@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>ReactiveCocoa之核心信号---RACCommand | PackZ</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ReactiveCocoa之核心信号---RACCommand | PackZ">
+    <meta name="twitter:description" content="因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ReactiveCocoa之核心信号---RACCommand | PackZ">
+    <meta property="og:description" content="因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》">
+
+    
+    <meta name="author" content="PackZ">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/favicon.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="PackZ" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://104.224.135.25/2017/05/31/ReactiveCocoa-RACCommand/"/>
+
+    
+</head>
+
+<body class="home-template no-js">
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 PackZ 的主页"><img src="/images/logo2.jpg" width="80" alt="PackZ logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for PackZ">PackZ</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">iOS开发程序员</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/lenbo-ma" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  <li class="navigation__item">
+    <a href="https://twitter.com/lenbo_" title="上Twitter找我" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-05-31T02:46:52.000Z" class="post-list__meta--date date">2017.05.31</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/ReactiveCocoa/">ReactiveCocoa</a>
+</span>;
+    </div>
+    <h1 class="post-title">ReactiveCocoa之核心信号---RACCommand</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="给按钮添加操作"><a href="#给按钮添加操作" class="headerlink" title="给按钮添加操作"></a>给按钮添加操作</h2><p>RAC使用分类给UIBarButtonItem，UIButton等控件做了支持，可以方便我们使用RAC给它们添加操作。用到的类是RACCommand。</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">@weakify(<span class="keyword">self</span>);</div><div class="line">    <span class="keyword">self</span>.samplePicButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(<span class="keyword">id</span> input) &#123;</div><div class="line">        @strongify(<span class="keyword">self</span>);</div><div class="line">        [<span class="keyword">self</span> showSamplePic];</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> [RACSignal empty];</div><div class="line">    &#125;];</div></pre></td></tr></table></figure>
+<p>使用原来给按钮添加操作的方法<code>- (void)addTarget:(nullable id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;</code>，就会发现两个问题</p>
+<p>1.需要额外定义方法，过程繁琐。<br>2.不利于阅读，需要跳转到action的具体实现。</p>
+<p>使用RAC提供的方法，完美解决了以上问题并且符合编码高内聚的思想。</p>
+<h2 id="执行网络操作"><a href="#执行网络操作" class="headerlink" title="执行网络操作"></a>执行网络操作</h2><h4 id="创建命令"><a href="#创建命令" class="headerlink" title="创建命令"></a>创建命令</h4><p><code>RACCommand</code>还支持手动创建，然后在需要的时候执行。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">marketingDataCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) &#123;</div><div class="line">    return [self MarketingDataSignal];</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p>在SignalBlock中需要返回一个<code>RACSignal</code>对象，RACSignal对象封装了网络请求。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">- (RACSignal *)MarketingDataSignal &#123;</div><div class="line">    return [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">        [MarketingRequestModel marketingDataSuccess:^(id object) &#123;</div><div class="line">            </div><div class="line">            MarketingDataViewModel *vm = [[MarketingDataViewModel alloc] init];</div><div class="line">            vm.model = object;</div><div class="line">            self.marketingVM = vm;</div><div class="line">            </div><div class="line">            [subscriber sendNext:nil];</div><div class="line">            [subscriber sendCompleted];</div><div class="line">        &#125; Failure:^&#123;</div><div class="line">            [subscriber sendCompleted];</div><div class="line">        &#125;];</div><div class="line">        return nil;</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上代码可以的操作就是创建信号，信号内部调用<code>marketingDataSuccess</code>网络请求，无论成功还是失败都给订阅者<code>send</code>信息。</p>
+<p>在外部如何去调用<code>RACCommand</code>呢？</p>
+<p>在外部需要对<code>RACCommand</code>做两件事情，那就是<code>触发</code>与<code>订阅</code>。</p>
+<h4 id="触发"><a href="#触发" class="headerlink" title="触发"></a>触发</h4><p>对<code>RACCommand</code>的触发非常简单。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[marketingDataCommand execute:nil];</div></pre></td></tr></table></figure>
+<p>执行<code>execute</code>方法的时候，就会去执行<code>RACCommand</code>创建时的<code>signalBlock</code>闭包中的内容。</p>
+<h4 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h4><p>触发<code>RACCommand</code>以后通常需要视图层有感知，例如舒刷新表格，停止动画等。订阅<code>RACCommand</code>中的信号即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[self.marketingVM.marketingDataCommand.executionSignals subscribeNext:^(RACSignal *signal) &#123;</div><div class="line">    [signal subscribeNext:^(id x) &#123;</div><div class="line">        //do something</div><div class="line">     &#125;];</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p><code>executionSignals</code>会获取到信号的信号，在对信号进行订阅，也可以写成以下简化的形式。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[marketingDataCommand.executionSignals.switchToLatest subscribeNext:^(id x) &#123;</div><div class="line">    //do something</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<h4 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h4><p>在触发命令的时候(执行<code>- (RACSignal *)execute:(id)input</code>方法)，可以传入<code>input</code>参数。会作为<code>RACCommand</code>创建时的<code>signalBlock</code>闭包的参数传入。</p>
+<hr>
+<p>在MVVM+RAC的架构中，<code>RACCommand</code>常暴露在<code>ViewModel</code>的.h文件中，以供给外部View层调用。而在<code>RACCommand</code>中的操作通常则是网络请求或者数据存储。</p>
+
+  </section>
+
+</article>
+
+
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    </span>
+    <span class="footer__copyright">
+        基于 <a href="http://hexo.io">Hexo</a> 搭建，感谢 <a href="https://pages.github.com/">GitHub Pages</a> 提供免费的托管服务
+    </span>
+    <span class="footer__copyright">
+        &copy; 2017 - 本站由 <a href="/">@Longbo Ma</a> 创建,
+        使用<a href="https://github.com/lenbo-ma/hexo-theme-vno">hexo-theme-vno</a>主题,
+        修改自<a href="http://github.com/onevcat/vno" target="_blank">Vno</a>
+    </span>
+</footer>
+
+        </div>
+    </div>
+
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+
+     
+</body>
+</html>
