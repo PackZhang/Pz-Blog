@@ -1,7 +1,9 @@
 ---
 title: ReactiveCocoa之核心信号---RACSignal
 date: 2017-05-17 14:48:46
-tags: ReactiveCocoa
+tags: 
+- ReactiveCocoa
+- RACSignal
 ---
 ### 创建信号
 

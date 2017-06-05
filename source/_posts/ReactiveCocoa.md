@@ -1,7 +1,8 @@
 ---
 title: ReactiveCocoa
 date: 2017-05-12 16:57:20
-tags: ReactiveCocoa
+tags: 
+- ReactiveCocoa
 ---
 ## 写在前面
 > ReactiveCocoa（其简称为 RAC）是由 Github 开源的一个应用于 iOS 和 OS X 开发的新框架。RAC 具有函数式编程和响应式编程的特性。它主要吸取了 .Net 的 Reactive Extensions 的设计和实现。
