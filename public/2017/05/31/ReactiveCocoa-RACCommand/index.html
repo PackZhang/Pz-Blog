@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="给按钮添加操作RAC使用分类给UIBarButtonItem，UIButton等控件做了支持，可以方便我们使用RAC给它们添加操作。用到的类是RACCommand。 @weakify(self);    self.samplePicButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input)">
+<meta name="description" content="Command的意思为指令的意思，在使用RAC时是经常使用到类。它主要可以处理响应事件，耗时操作等。 给按钮添加操作RAC使用分类给UIBarButtonItem，UIButton等控件做了支持，可以方便我们使用RAC给它们添加操作。用到的类是RACCommand。 @weakify(self);    self.samplePicButton.rac_command = [[RACCommand">
 <meta name="keywords" content="ReactiveCocoa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ReactiveCocoa之核心信号---RACCommand">
 <meta property="og:url" content="http://104.224.135.25/2017/05/31/ReactiveCocoa-RACCommand/index.html">
 <meta property="og:site_name" content="PackZ’s Blog">
-<meta property="og:description" content="给按钮添加操作RAC使用分类给UIBarButtonItem，UIButton等控件做了支持，可以方便我们使用RAC给它们添加操作。用到的类是RACCommand。 @weakify(self);    self.samplePicButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input)">
-<meta property="og:updated_time" content="2017-06-05T02:59:06.000Z">
+<meta property="og:description" content="Command的意思为指令的意思，在使用RAC时是经常使用到类。它主要可以处理响应事件，耗时操作等。 给按钮添加操作RAC使用分类给UIBarButtonItem，UIButton等控件做了支持，可以方便我们使用RAC给它们添加操作。用到的类是RACCommand。 @weakify(self);    self.samplePicButton.rac_command = [[RACCommand">
+<meta property="og:updated_time" content="2017-06-07T06:10:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactiveCocoa之核心信号---RACCommand">
-<meta name="twitter:description" content="给按钮添加操作RAC使用分类给UIBarButtonItem，UIButton等控件做了支持，可以方便我们使用RAC给它们添加操作。用到的类是RACCommand。 @weakify(self);    self.samplePicButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input)">
+<meta name="twitter:description" content="Command的意思为指令的意思，在使用RAC时是经常使用到类。它主要可以处理响应事件，耗时操作等。 给按钮添加操作RAC使用分类给UIBarButtonItem，UIButton等控件做了支持，可以方便我们使用RAC给它们添加操作。用到的类是RACCommand。 @weakify(self);    self.samplePicButton.rac_command = [[RACCommand">
 
 
 
@@ -311,7 +311,8 @@
       
 
       
-        <h2 id="给按钮添加操作"><a href="#给按钮添加操作" class="headerlink" title="给按钮添加操作"></a>给按钮添加操作</h2><p>RAC使用分类给UIBarButtonItem，UIButton等控件做了支持，可以方便我们使用RAC给它们添加操作。用到的类是RACCommand。</p>
+        <p><code>Command</code>的意思为指令的意思，在使用RAC时是经常使用到类。它主要可以处理响应事件，耗时操作等。</p>
+<h2 id="给按钮添加操作"><a href="#给按钮添加操作" class="headerlink" title="给按钮添加操作"></a>给按钮添加操作</h2><p>RAC使用分类给UIBarButtonItem，UIButton等控件做了支持，可以方便我们使用RAC给它们添加操作。用到的类是RACCommand。</p>
 <figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">@weakify(<span class="keyword">self</span>);</div><div class="line">    <span class="keyword">self</span>.samplePicButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(<span class="keyword">id</span> input) &#123;</div><div class="line">        @strongify(<span class="keyword">self</span>);</div><div class="line">        [<span class="keyword">self</span> showSamplePic];</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> [RACSignal empty];</div><div class="line">    &#125;];</div></pre></td></tr></table></figure>
 <p>使用原来给按钮添加操作的方法<code>- (void)addTarget:(nullable id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;</code>，就会发现两个问题</p>
 <p>1.需要额外定义方法，过程繁琐。<br>2.不利于阅读，需要跳转到action的具体实现。</p>
@@ -374,6 +375,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/07/ReactiveCocoa-RACSubject/" rel="next" title="ReactiveCocoa之核心信号---RACSubject">
+                <i class="fa fa-chevron-left"></i> ReactiveCocoa之核心信号---RACSubject
+              </a>
             
           </div>
 
@@ -455,7 +460,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -468,7 +473,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>

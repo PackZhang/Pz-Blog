@@ -3,6 +3,9 @@ title: ReactiveCocoa之核心信号---RACCommand
 date: 2017-05-31 10:46:52
 tags: ReactiveCocoa
 ---
+
+`Command`的意思为指令的意思，在使用RAC时是经常使用到类。它主要可以处理响应事件，耗时操作等。
+
 ## 给按钮添加操作
 RAC使用分类给UIBarButtonItem，UIButton等控件做了支持，可以方便我们使用RAC给它们添加操作。用到的类是RACCommand。
 

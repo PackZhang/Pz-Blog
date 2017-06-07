@@ -3,9 +3,8 @@ title: ReactiveCocoa之核心信号---RACSignal
 date: 2017-05-17 14:48:46
 tags: 
 - ReactiveCocoa
-- RACSignal
 ---
-### 创建信号
+## 创建信号
 
 ```objectivec
 RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
@@ -38,7 +37,7 @@ RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSub
 
 > 值得注意的是每一个信号的终点都是complete或者error，否则下一次对信号订阅操作不会生效。
 
-### 订阅信号
+## 订阅信号
 ```objectivec
 	//订阅信号
     [signal subscribeNext:^(id  _Nullable x) {
