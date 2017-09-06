@@ -2,13 +2,20 @@
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
+##教程：https://haojen.github.io/2017/05/09/Anisina-%E4%B8%AD%E6%96%87%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
+
 # Site
-title: PackZ’s Blog
+title: PackZ
+SEOTitle: PackZ
 subtitle: iOS开发程序员
 description: 因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》
 author: PackZ
 language: zh-Hans
 timezone:
+
+#cdn-url: "http://your-cdn.com/"
+post-default-img: defaultImage.jpg
+Header-img: defaultImage.jpg
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -63,7 +70,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: Anisina
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
