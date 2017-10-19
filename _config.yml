@@ -2,20 +2,25 @@
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
-##教程：https://haojen.github.io/2017/05/09/Anisina-%E4%B8%AD%E6%96%87%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/
+## 教程：https://github.com/CodeDaraW/Hacker/blob/master/README_zh-CN.md
+
+# archive page title 
+archive:
+    title: archives
+
+archive_generator:
+  per_page: 0  
+  yearly: false
+  monthly: false
+  daily: false
 
 # Site
 title: PackZ
-SEOTitle: PackZ
 subtitle: iOS开发程序员
 description: 因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》
-author: PackZ
+author: PackZ, cdgnahz@foxmail.com
 language: zh-Hans
-timezone:
-
-#cdn-url: "http://your-cdn.com/"
-post-default-img: defaultImage.jpg
-Header-img: defaultImage.jpg
+avatar: https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508415693133&di=9336fcbceb6c1a1b030891f5cf3426d2&imgtype=0&src=http%3A%2F%2Fwww.feizl.com%2Fupload2007%2F2014_08%2F14081816263083.jpg
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -70,7 +75,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: Anisina
+theme: anatole
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
