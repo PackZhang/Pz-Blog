@@ -1,14 +1,323 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="PackZ, cdgnahz@foxmail.com"><title>PackZ</title><meta name="description" content="因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">PackZ</a></h3><div class="description"><p>因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/" class="current">首页</a></li><li><a href="/archives">归档</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" style="display:none;" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1508415693133&amp;di=9336fcbceb6c1a1b030891f5cf3426d2&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.feizl.com%2Fupload2007%2F2014_08%2F14081816263083.jpg"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2017/11/09/利用AppleScript，Shell，Xcode-Run-Script自动替换H5压缩包/">利用AppleScript，Shell，Xcode_Run_Script自动替换H5压缩包</a></h3></div><div class="post-content"><p>准备公司的App是Hybird架构的App，发版本前需要将H5压缩文件放在工程指定路径下。并且在平时开发测试过程中，经常需要替换H5压缩文件，感觉很麻烦，便想到了将整个过程自动化。开始之前有以下几个问题:
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="因为害怕自己并非明珠而不敢刻苦琢磨，又因为有几分相信自己是明珠，而不能与瓦砾碌碌为伍，遂逐渐远离世间，疏避人群，结果在内心不断地用愤懑和羞怒饲育着自己懦弱的自尊心。—— 《山月记》">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      PackZ
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>PackZ</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link active">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link mobile-active">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2017/11/09/利用AppleScript，Shell，Xcode-Run-Script自动替换H5压缩包/">利用AppleScript，Shell，Xcode_Run_Script自动替换H5压缩包</a>
+      </h2>
+      <p class="article-date">November 9, 2017</p>
+      
+        
+  <a href="/tags#Xcode小技巧" >
+    <span class="tag-code">Xcode小技巧</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          准备公司的App是Hybird架构的App，发版本前需要将H5压缩文件放在工程指定路径下。并且在平时开发测试过程中，经常需要替换H5压缩文件，感觉很麻烦，便想到了将整个过程自动化。开始之前有以下几个问题:
 
 不同开发人员项目工程路径不统一导致H5压缩文件存放路径不一致
 
 
-将脚本文件与H5压缩文件放在统一目录下，...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-11-09</span><i class="fa fa-tag"></i><a href="/tags/Xcode小技巧/" title="Xcode小技巧" class="tag">Xcode小技巧 </a></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2017/06/12/Xcode-忽略警告/">Xcode---忽略警告</a></h3></div><div class="post-content"><p>忽略警告在iOS开发编码完成后，常常有一堆警告，可以使用系统提供的宏定义将警告忽略。
-#pragma clang diagnostic push#pragma clang diagnostic ignored&quot;-Wundeclared-selector&quot;//希望忽略警告的代码区间#pragma...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-06-12</span><i class="fa fa-tag"></i><a href="/tags/Xcode/" title="Xcode" class="tag">Xcode </a></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2017/06/07/ReactiveCocoa-RACSubject/">ReactiveCocoa之核心信号---RACSubject</a></h3></div><div class="post-content"><p>代替代理RACSubject本身可以当做信号，也可以订阅信号。RACSubject常常可以用来替代代理，使用方式简单。
+将脚本文件与H5压 ...
+        
+      </div>
+      <a class="more" href="/2017/11/09/利用AppleScript，Shell，Xcode-Run-Script自动替换H5压缩包/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2017/06/12/Xcode-忽略警告/">Xcode---忽略警告</a>
+      </h2>
+      <p class="article-date">June 12, 2017</p>
+      
+        
+  <a href="/tags#Xcode小技巧" >
+    <span class="tag-code">Xcode小技巧</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          忽略警告在iOS开发编码完成后，常常有一堆警告，可以使用系统提供的宏定义将警告忽略。
+#pragma clang diagnostic push#pragma clang diagnostic ignored&quot;-Wundeclared-selector&quot;//希望忽略警告的 ...
+        
+      </div>
+      <a class="more" href="/2017/06/12/Xcode-忽略警告/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2017/06/07/ReactiveCocoa-RACSubject/">ReactiveCocoa之核心信号---RACSubject</a>
+      </h2>
+      <p class="article-date">June 7, 2017</p>
+      
+        
+  <a href="/tags#ReactiveCocoa" >
+    <span class="tag-code">ReactiveCocoa</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          代替代理RACSubject本身可以当做信号，也可以订阅信号。RACSubject常常可以用来替代代理，使用方式简单。
 原来实现代理需要六步，实现起来比较麻烦，如果使用RAC三步就可以达到代理的效果。
-创建信号RACSubject *subject = [RACSubject subject];
-RAC提供了工厂...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-06-07</span><i class="fa fa-tag"></i><a href="/tags/ReactiveCocoa/" title="ReactiveCocoa" class="tag">ReactiveCocoa </a></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2017/05/31/ReactiveCocoa-RACCommand/">ReactiveCocoa之核心信号---RACCommand</a></h3></div><div class="post-content"><p>Command的意思为指令的意思，在使用RAC时是经常使用到类。它主要可以处理响应事件，耗时操作等。
+创建信号RACSubject *subject = [RACSubject subject ...
+        
+      </div>
+      <a class="more" href="/2017/06/07/ReactiveCocoa-RACSubject/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2017/05/31/ReactiveCocoa-RACCommand/">ReactiveCocoa之核心信号---RACCommand</a>
+      </h2>
+      <p class="article-date">May 31, 2017</p>
+      
+        
+  <a href="/tags#ReactiveCocoa" >
+    <span class="tag-code">ReactiveCocoa</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          Command的意思为指令的意思，在使用RAC时是经常使用到类。它主要可以处理响应事件，耗时操作等。
 给按钮添加操作RAC使用分类给UIBarButtonItem，UIButton等控件做了支持，可以方便我们使用RAC给它们添加操作。用到的类是RACCommand。
-@weakify(self);    self...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-05-31</span><i class="fa fa-tag"></i><a href="/tags/ReactiveCocoa/" title="ReactiveCocoa" class="tag">ReactiveCocoa </a></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2017/05/17/ReactiveCocoa-RACSignal/">ReactiveCocoa之核心信号---RACSignal</a></h3></div><div class="post-content"><p>创建信号RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id&lt;RACSubscriber&gt;  _Nonnull subscriber) &#123;               //被订阅时触发闭包     ...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-05-17</span><i class="fa fa-tag"></i><a href="/tags/ReactiveCocoa/" title="ReactiveCocoa" class="tag">ReactiveCocoa </a></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2017/05/12/ReactiveCocoa/">ReactiveCocoa</a></h3></div><div class="post-content"><p>写在前面
-ReactiveCocoa（其简称为 RAC）是由 Github 开源的一个应用于 iOS 和 OS X 开发的新框架。RAC 具有函数式编程和响应式编程的特性。它主要吸取了 .Net 的 Reactive Extensions 的设计和实现。但是，相对于传统的 MVC 架构，ReactiveCocoa...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-05-12</span><i class="fa fa-tag"></i><a href="/tags/ReactiveCocoa/" title="ReactiveCocoa" class="tag">ReactiveCocoa </a></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2017/05/11/为应用添加Touch-ID/">为应用添加Touch ID</a></h3></div><div class="post-content"><p>简介Touch ID是苹果公司的一种指纹识别技术。苹果把用户的指纹数据存放在处理器的安全区域中，充分保护用户的数据安全。除此之外，苹果还有另外一道指纹数据安全防线，以一种前所未有的硬件技术实现了对用户数据的保护。
-背景最初在2013年苹果推出的iPhone 5s上出现，解锁速度稍慢。在2015年苹果发布会上声明i...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2017-05-11</span><i class="fa fa-tag"></i><a href="/tags/Touch-ID/" title="Touch ID" class="tag">Touch ID </a></div></div></div></div><div class="pagination"><ul class="clearfix"></ul></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
+@weakify(sel ...
+        
+      </div>
+      <a class="more" href="/2017/05/31/ReactiveCocoa-RACCommand/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2017/05/17/ReactiveCocoa-RACSignal/">ReactiveCocoa之核心信号---RACSignal</a>
+      </h2>
+      <p class="article-date">May 17, 2017</p>
+      
+        
+  <a href="/tags#ReactiveCocoa" >
+    <span class="tag-code">ReactiveCocoa</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          创建信号RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id&lt;RACSubscriber&gt;  _Nonnull subscriber) &#123;               //被订 ...
+        
+      </div>
+      <a class="more" href="/2017/05/17/ReactiveCocoa-RACSignal/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2017/05/12/ReactiveCocoa/">ReactiveCocoa</a>
+      </h2>
+      <p class="article-date">May 12, 2017</p>
+      
+        
+  <a href="/tags#ReactiveCocoa" >
+    <span class="tag-code">ReactiveCocoa</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          写在前面
+ReactiveCocoa（其简称为 RAC）是由 Github 开源的一个应用于 iOS 和 OS X 开发的新框架。RAC 具有函数式编程和响应式编程的特性。它主要吸取了 .Net 的 Reactive Extensions 的设计和实现。但是，相对于传统的 MVC 架构，Re ...
+        
+      </div>
+      <a class="more" href="/2017/05/12/ReactiveCocoa/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2017/05/11/为应用添加Touch-ID/">为应用添加Touch ID</a>
+      </h2>
+      <p class="article-date">May 11, 2017</p>
+      
+        
+  <a href="/tags#Touch ID" >
+    <span class="tag-code">Touch ID</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          简介Touch ID是苹果公司的一种指纹识别技术。苹果把用户的指纹数据存放在处理器的安全区域中，充分保护用户的数据安全。除此之外，苹果还有另外一道指纹数据安全防线，以一种前所未有的硬件技术实现了对用户数据的保护。
+背景最初在2013年苹果推出的iPhone 5s上出现，解锁速度稍慢。在201 ...
+        
+      </div>
+      <a class="more" href="/2017/05/11/为应用添加Touch-ID/">Read more</a>
+    </article>
+  
+
+  
+</main>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2017 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'false';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine == 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

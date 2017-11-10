@@ -10,7 +10,7 @@
   
   <title>
     
-      PackZ
+      Tags | PackZ
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -112,65 +112,92 @@
 </header>
 
     <div id="article-banner">
-  <h2>Archives</h2>
-  <p class="post-date">文章归档</p>
+  <h2>Tags</h2>
+  <p class="post-date">标签检索</p>
 </div>
-<main class="app-body" id="archives">
-  
-  
-  
-    <section class="time-section">
-  <h1 class="section-year">
-    2017
-  </h1>
-  <div class="section-list">
+<main class="app-body">
+  <div id="tag-cloud">
     
+      <a class="tag1" data-name="tag-ReactiveCocoa">ReactiveCocoa</a>
     
-      <div class="section-list-item">
-        <a href="/2017/11/09/利用AppleScript，Shell，Xcode-Run-Script自动替换H5压缩包/" class="archive-title">利用AppleScript，Shell，Xcode_Run_Script自动替换H5压缩包</a>
-        <p class="archive-date">11-09</p>
-      </div>
+      <a class="tag2" data-name="tag-Xcode小技巧">Xcode小技巧</a>
     
-      <div class="section-list-item">
-        <a href="/2017/06/12/Xcode-忽略警告/" class="archive-title">Xcode---忽略警告</a>
-        <p class="archive-date">06-12</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2017/06/07/ReactiveCocoa-RACSubject/" class="archive-title">ReactiveCocoa之核心信号---RACSubject</a>
-        <p class="archive-date">06-07</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2017/05/31/ReactiveCocoa-RACCommand/" class="archive-title">ReactiveCocoa之核心信号---RACCommand</a>
-        <p class="archive-date">05-31</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2017/05/17/ReactiveCocoa-RACSignal/" class="archive-title">ReactiveCocoa之核心信号---RACSignal</a>
-        <p class="archive-date">05-17</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2017/05/12/ReactiveCocoa/" class="archive-title">ReactiveCocoa</a>
-        <p class="archive-date">05-12</p>
-      </div>
-    
-      <div class="section-list-item">
-        <a href="/2017/05/11/为应用添加Touch-ID/" class="archive-title">为应用添加Touch ID</a>
-        <p class="archive-date">05-11</p>
-      </div>
+      <a class="tag3" data-name="tag-Touch ID">Touch ID</a>
     
   </div>
-</section>
   
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-ReactiveCocoa">ReactiveCocoa</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/05/31/ReactiveCocoa-RACCommand/">ReactiveCocoa之核心信号---RACCommand</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/05/17/ReactiveCocoa-RACSignal/">ReactiveCocoa之核心信号---RACSignal</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/06/07/ReactiveCocoa-RACSubject/">ReactiveCocoa之核心信号---RACSubject</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/05/12/ReactiveCocoa/">ReactiveCocoa</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-Xcode小技巧">Xcode小技巧</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/06/12/Xcode-忽略警告/">Xcode---忽略警告</a>
+          </li>
+        </ul>
+        
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/11/09/利用AppleScript，Shell，Xcode-Run-Script自动替换H5压缩包/">利用AppleScript，Shell，Xcode_Run_Script自动替换H5压缩包</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-Touch ID">Touch ID</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2017/05/11/为应用添加Touch-ID/">为应用添加Touch ID</a>
+          </li>
+        </ul>
+        
+    </div>
+    
 </main>
 
 <script>
   (function () {
-    var url = 'http://104.224.135.25/tags/Xcode小技巧/index.html';
-    $('#article-banner').geopattern(url);
-    $('.header').removeClass('fixed-header');
+    var url = 'http://104.224.135.25/tags/index.html'
+    $('#article-banner').geopattern(url)
+    $('.header').removeClass('fixed-header')
+
+    var tag = location.hash.replace('#', '')
+    if (tag) {
+      var tagId = "#tag-" + tag;
+      $("html, body").animate({
+        scrollTop: $(tagId).offset().top 
+      }, 400)
+    }
   })();
 </script>
     <div class="scroll-top">

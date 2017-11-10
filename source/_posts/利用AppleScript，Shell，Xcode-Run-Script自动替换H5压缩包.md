@@ -20,7 +20,7 @@ tags: Xcode小技巧
 
 # 实施
 ## AppleScript 
-本着高校快速解决问题的原则，我直接选用了macOS自带的『脚本编辑器』应用，利用`AppleScript`书写脚本。
+本着高效快速解决问题的原则，我直接选用了macOS自带的『脚本编辑器』应用，利用`AppleScript`书写脚本。
 
 > 设定新的H5压缩文件的存放策略是名称为`h5`，并且置于`Desktop`
 
