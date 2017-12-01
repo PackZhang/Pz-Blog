@@ -39,6 +39,12 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
 
+# Gitment
+gitment_owner: PackZhang
+gitment_repo: PackZhang.github.io
+gitment_oauth_id: fe147afc01a756930d96
+gitment_oauth_secret: b2957464ab1af73c0933fb71e29bb35a47b7fbbe
+
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
