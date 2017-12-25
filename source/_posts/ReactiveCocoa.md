@@ -13,7 +13,7 @@ tags:
 再去尝试使用MVVM+RAC的结构去构建你的应用。
 
 ## RAC常用类的继承关系
-<center>![](http://i2.muimg.com/1949/2b3967b71cb5d0d0.png)</center>
+<center>![](http://oy9at3amc.bkt.clouddn.com/RAC%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB.png)</center>
 
 ##常用类
 [ReactiveCocoa之核心信号---RACSignal](http://104.224.135.25/2017/05/17/ReactiveCocoa-RACSignal/)

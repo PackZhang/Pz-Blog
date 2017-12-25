@@ -12,7 +12,7 @@ Touch ID是苹果公司的一种指纹识别技术。苹果把用户的指纹数
 
 最初在2013年苹果推出的iPhone 5s上出现，解锁速度稍慢。
 在2015年苹果发布会上声明iPhone 6s采用了第二代Touch ID，识别速度更快。
-<center>![](http://i1.piimg.com/1949/1a73de8ac30b372e.jpg)</center>
+<center>![](http://oy9at3amc.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-12-25%20%E4%B8%8B%E5%8D%882.34.42.png)</center>
 <center>相比2013年第一代Touch ID，2015年第二代Touch ID的识别面积提升了40%</center>
 
 ## 使用
@@ -68,5 +68,5 @@ Touch ID是苹果公司的一种指纹识别技术。苹果把用户的指纹数
     LAPolicyDeviceOwnerAuthenticationWithBiometrics
 
 两种策略的区别我以以下的流程图说明
-![](http://i4.buimg.com/1949/b69eb46f844e5a54.png)
+![](http://oy9at3amc.bkt.clouddn.com/912E772F-369E-45EE-8516-DE7B398A2F51.png)
 注：LAPolicyDeviceOwnerAuthentication策略在Touch ID验证失败三次以后，会要求用户输入PassCode(iPhone的开屏密码)，PassCode输错6次，iPhone将被锁住1min。三次以后，会要求用户输入PassCode(iPhone的开屏密码)，PassCode输错6次，iPhone将被锁住1min。
